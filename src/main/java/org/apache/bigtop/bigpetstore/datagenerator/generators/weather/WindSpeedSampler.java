@@ -1,10 +1,9 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.generators.weather;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
 
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.ConditionalSampler;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.GammaSampler;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherConstants;
 import org.joda.time.LocalDate;
 
 public class WindSpeedSampler implements ConditionalSampler<Double, LocalDate>

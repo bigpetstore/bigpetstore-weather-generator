@@ -1,9 +1,7 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.generators.weather;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
 
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.ConditionalSampler;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherConstants;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datamodels.Weather;
 import org.apache.commons.lang3.tuple.Pair;
 import org.joda.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datamodels;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
 
 import java.io.Serializable;
 

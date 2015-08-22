@@ -1,4 +1,4 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.cli;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,10 +10,6 @@ import java.util.Random;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.Location;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.LocationReader;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherGenerator;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datamodels.Weather;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datamodels.inputs.WeatherStationParameters;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datareaders.WeatherParametersReader;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;

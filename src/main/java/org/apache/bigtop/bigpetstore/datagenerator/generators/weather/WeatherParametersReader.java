@@ -1,4 +1,4 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datareaders;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -6,8 +6,6 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
 
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherConstants;
-import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.datamodels.inputs.WeatherStationParameters;
 import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.collect.Lists;
