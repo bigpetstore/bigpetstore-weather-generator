@@ -11,9 +11,9 @@ public class WeatherGenerator implements Sampler<WeatherRecord>
 {
 	private final Sampler<WeatherRecord> weatherSampler;
 	
-	public WeatherGenerator(List<WeatherStationParameters> parameters, LocalDate startDate, 
-			Location location, SeedFactory seedFactory)
+	public WeatherGenerator(LocalDate startDate, Location location, SeedFactory seedFactory) throws Exception
 	{
+		List<WeatherStationParameters> parameters = new WeatherParametersReader().readParameters();
 		WeatherSamplerBuilder builder = new WeatherSamplerBuilder(
 				parameters, location, startDate, seedFactory);
 		weatherSampler = builder.build();

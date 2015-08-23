@@ -21,7 +21,6 @@ import com.google.common.collect.Lists;
 public class Driver
 {
 	List<Location> locations;
-	List<WeatherStationParameters> parameters;
 	Location location;
 	int simulationLength;
 	LocalDate startDate;
@@ -169,11 +168,10 @@ public class Driver
 	public void run(String[] args) throws Exception
 	{
 		locations = new LocationReader().loadData();
-		parameters = new WeatherParametersReader().readParameters();
 		
 		parseArgs(args);
 		
-		WeatherGenerator generator = new WeatherGenerator(parameters,
+		WeatherGenerator generator = new WeatherGenerator(
 				startDate, location, seedFactory);
 		
 		LocalDate date = startDate;
