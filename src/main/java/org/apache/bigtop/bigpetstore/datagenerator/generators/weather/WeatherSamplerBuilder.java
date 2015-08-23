@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.ConditionalSampler;
-import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.ExponentialSampler;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.Location;
 import org.joda.time.LocalDate;
@@ -43,19 +42,14 @@ public class WeatherSamplerBuilder
 		return closestStation;
 	}
 
-	private Sampler<Double> buildPrecipSampler()
-	{
-		return new ExponentialSampler(1.0 / parameters.getPrecipitationAverage(), seedFactory);
-	}
-	
-	private ConditionalSampler<Double, LocalDate> buildTempSampler()
+	private ConditionalSampler<WeatherRecordBuilder, WeatherRecordBuilder> buildTempSampler()
 	{
 		return new TemperatureSampler(startDate, parameters.getTemperatureAverage(),
 				parameters.getTemperatureRealCoeff(), parameters.getTemperatureImagCoeff(),
 				parameters.getTemperatureDerivStd(), seedFactory);
 	}
 	
-	private ConditionalSampler<Double, LocalDate> buildWindSpeedSampler()
+	private ConditionalSampler<WeatherRecordBuilder, WeatherRecordBuilder> buildWindSpeedSampler()
 	{
 		return new WindSpeedSampler(parameters.getWindSpeedRealCoeff(),
 				parameters.getWindSpeedImagCoeff(),
@@ -63,10 +57,14 @@ public class WeatherSamplerBuilder
 				parameters.getWindSpeedTheta(), seedFactory);
 	}
 	
-	public Sampler<Weather> build()
+	private ConditionalSampler<WeatherRecordBuilder, WeatherRecordBuilder> buildPrecipitationSampler()
+	{
+		return new PrecipitationSampler(parameters.getPrecipitationAverage(), seedFactory);
+	}
+	
+	public Sampler<WeatherRecord> build()
 	{
 		return new WeatherSampler(startDate, buildTempSampler(),
-				buildPrecipSampler(), buildWindSpeedSampler(),
-				new WindChillConditionalSampler(), new RainfallSnowfallConditionalSampler());
+				buildWindSpeedSampler(), buildPrecipitationSampler());
 	}
 }

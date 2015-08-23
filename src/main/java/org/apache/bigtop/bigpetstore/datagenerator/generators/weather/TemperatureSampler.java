@@ -6,7 +6,7 @@ import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.GaussianSa
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
 import org.joda.time.LocalDate;
 
-public class TemperatureSampler implements ConditionalSampler<Double, LocalDate>
+public class TemperatureSampler implements ConditionalSampler<WeatherRecordBuilder, WeatherRecordBuilder>
 {
 	final private Sampler<Double> R;
 	final private double average;
@@ -29,10 +29,10 @@ public class TemperatureSampler implements ConditionalSampler<Double, LocalDate>
 		noise = 0.0;
 	}
 	
-	public Double sample(LocalDate endDate) throws Exception
+	public WeatherRecordBuilder sample(WeatherRecordBuilder weatherRecord) throws Exception
 	{
 		double temp = 0.0;
-		while(date.isBefore(endDate))
+		while(date.isBefore(weatherRecord.getDate()))
 		{
 			double dayOfYear = date.getDayOfYear();
 			temp = average + coeffReal * Math.cos(-2.0 * Math.PI * dayOfYear / WeatherConstants.TEMPERATURE_PERIOD) +
@@ -44,6 +44,8 @@ public class TemperatureSampler implements ConditionalSampler<Double, LocalDate>
 			date = date.plusDays(WeatherConstants.WEATHER_TIMESTEP);
 		}
 		
-		return temp;
+		weatherRecord.setTemperature(temp);
+		
+		return weatherRecord;
 	}
 }

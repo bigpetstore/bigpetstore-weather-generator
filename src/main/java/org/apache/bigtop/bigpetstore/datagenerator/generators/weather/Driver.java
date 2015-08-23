@@ -142,12 +142,12 @@ public class Driver
 		seedFactory = new SeedFactory(seed);
 	}
 	
-	private void writeWeather(Location location, List<Weather> trajectory) throws Exception
+	private void writeWeather(Location location, List<WeatherRecord> trajectory) throws Exception
 	{
 		File outputFile = new File(outputDir.toString() + File.separator + location.getZipcode() + ".txt");
 		Writer output = new BufferedWriter(new FileWriter(outputFile));
 
-		for(Weather weather : trajectory)
+		for(WeatherRecord weather : trajectory)
 		{
 			String record = weather.getDate() + ",";
 			record += location.getCity() + ",";
@@ -178,11 +178,11 @@ public class Driver
 		
 		LocalDate date = startDate;
 		LocalDate endDate = startDate.plusDays(simulationLength);
-		List<Weather> trajectory = Lists.newArrayList();
+		List<WeatherRecord> trajectory = Lists.newArrayList();
 		
 		while(date.isBefore(endDate))
 		{
-			Weather weather = generator.sample();
+			WeatherRecord weather = generator.sample();
 			trajectory.add(weather);
 			date = weather.getDate();
 		}

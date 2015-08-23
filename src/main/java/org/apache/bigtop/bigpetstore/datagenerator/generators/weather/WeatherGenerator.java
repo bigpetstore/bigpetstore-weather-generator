@@ -7,9 +7,9 @@ import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.Location;
 import org.joda.time.LocalDate;
 
-public class WeatherGenerator implements Sampler<Weather>
+public class WeatherGenerator implements Sampler<WeatherRecord>
 {
-	private final Sampler<Weather> weatherSampler;
+	private final Sampler<WeatherRecord> weatherSampler;
 	
 	public WeatherGenerator(List<WeatherStationParameters> parameters, LocalDate startDate, 
 			Location location, SeedFactory seedFactory)
@@ -19,7 +19,7 @@ public class WeatherGenerator implements Sampler<Weather>
 		weatherSampler = builder.build();
 	}
 	
-	public Weather sample() throws Exception
+	public WeatherRecord sample() throws Exception
 	{
 		return weatherSampler.sample();
 	}
