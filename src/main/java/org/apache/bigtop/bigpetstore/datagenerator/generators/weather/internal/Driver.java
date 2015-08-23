@@ -1,4 +1,4 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +10,8 @@ import java.util.Random;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.Location;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.LocationReader;
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherGenerator;
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherRecord;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;

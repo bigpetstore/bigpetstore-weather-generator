@@ -1,4 +1,4 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal;
 
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.ConditionalSampler;

@@ -1,7 +1,8 @@
-package org.apache.bigtop.bigpetstore.datagenerator.generators.weather;
+package org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal;
 
 import java.io.Serializable;
 
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.WeatherRecord;
 import org.joda.time.LocalDate;
 
 public class WeatherRecordBuilder implements Serializable, WeatherRecord

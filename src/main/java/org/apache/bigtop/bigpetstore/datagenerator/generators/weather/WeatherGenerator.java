@@ -5,6 +5,9 @@ import java.util.List;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.SeedFactory;
 import org.apache.bigtop.bigpetstore.datagenerator.framework.samplers.Sampler;
 import org.apache.bigtop.bigpetstore.datagenerator.generators.locations.Location;
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal.WeatherParametersReader;
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal.WeatherSamplerBuilder;
+import org.apache.bigtop.bigpetstore.datagenerator.generators.weather.internal.WeatherStationParameters;
 import org.joda.time.LocalDate;
 
 public class WeatherGenerator implements Sampler<WeatherRecord>
